@@ -1,0 +1,261 @@
+//Angular
+
+ng new nombre-de-app --no-standalone >> nueva app
+ng generate component newnameapp >> generar un nuevo componente (mg g c newnameapp)
+<app-cal><app-calc/>  >> selector en el html principal
+
+//Bootstrap
+
+npm install bootstrap --save >> instala bootstrap
+Cambiar en angular.json:
+            "styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": ["node_modules/jquery/dist/jquery.slim.min.js",
+            "node_modules/bootstrap/dist/js/bootstrap.min.js",
+            "node_modules/popper.js/dist/popper.min.js"]
+
+//instalar todo
+	npm i bootstrap jquery popper.js --save >> librerias basicas 
+	
+	
+	
+//interpolation
+{{funtion or variable}} >> para llamar a algo en ts desde el html
+
+
+
+//Binding
+
+[] >> html a ts 
+() >> ts a html, (keyup.enter)="funtion"
+[()] >> banana inbox, [(ngModel)]="funtion($event)"
+{{}} >> escribir en el html con variables de ts
+
+binding >> une html y ts
+event binding >> lo que ejecuta el script
+two way binding >> en ambos sentidos es la unión
+
+alert(event.target); >> sabemos como se llama el evento
+
+//directive
+
+Añade funcionalidades a etiqueta
+hay tupos Atributo, Estructural y Componente
+
+
+
+	//Condicionales
+	
+*ngIf="(true/false)" >> depende del parentecis aparecera o no en html
+<ng-template #nombe.de.else> p,a,h1 </ng-template> >> muestra codigo solo si aparece el else/
+	//Bucles:
+constructor(){
+    this.entrys[
+    (titulo: "algo"),
+    ]}
+      entrys: any[];
+*ngFor="let entry of entrys" y luego {{entry.titulo}} >> recorremos el array y lo imprimimos en el html
+
+[ngStyle]="{color: cargp =='director' ? 'red' : 'black'}" >> agregar style con ng 
+
+[ngClass]="{paraDirectores:cargo=='directores'}" >> con class
+
+		//Comunicación
+para no tener variables estrictas en tsconfig.json:
+  "compilerOptions": {
+    "strictPropertyInitialization": false, >> esto en false lo cambia
+    
+@input para recibir los datos:
+@input empleado:Empleados; y en html [empleado]="empleados"
+
+npm install >> si da error
+
+@Output() newItemEvent = new EventEmitter<string>();
+  //decorador - nombre (es como una variable) = tipo de output y que tipo de dato se emitira
+
+y en html agretgo imput con (click)="agregaCaracteristicas(nuevaCaracteristica.value)" (viene del input al btn
+
+
+
+
+		//inyeccion de Servicios
+ng g s nombre-servicio >> crea el servicio y podemos crear metodos para llamarlo (crea name.service.ts)
+
+en app.module.ts hay que agregar en array:
+providers: [ServioEmpleadoService], >> servio-empleado es mi metodo y asi queda (lo escribi mal en la realidad)
+
+constructor(private miServicio:ServioEmpleadoService){} >> creamos contructor para poder usar el servicio
+
+baiscamente es lo mismo siempre en las inyecciones de servicio
+1- se crea el servicio (name.service.ts)
+2-en app.modules.ts se agrega en providers (con la , varios)
+3- donde se usara se crea el constructor con private nombre-variable:nombre-clase-servicio
+4-usamos la variable para llamar y la funcion, variable, etc. que querramos en el servicio
+
+
+
+
+
+
+//Routes
+//para desde app controlar los components debajo y que sean otras pagianas
+
+En app.modules.ts:
+
+		//array de rutas:
+
+const appRoutes:Routes=[
+
+  {path:'', component:HomeComponentComponent}, >> '' porque no se vera nada en la url (vacio)
+  {path:'projects', component:ProjectsComponentsComponent},
+  {path:'AboutUs', component:AboutUsComponentComponent},
+  {path:'Contact', component:ContactComponentsComponent}
+];
+
+en la misma en import agregamos:
+  RouterModule.forRoot(appRoutes)
+
+y en el html de app hay que poner <router-outlet></router-outlet> para que enrute
+
+//en funcion para cambiar la ruta es con navigate:
+  backtohome(){
+    this.router.navigate([''])
+  }
+  
+  si quiero poner un link como por ejemplo se hace con href en route se usa <a [routerLink]="['/Actualiza']">
+ 
+  para que de id en la URL se configura el routes asi:
+    {path:'Actualiza/:id', component:ActualizaComponentComponent}
+y para capturar de la URL el id: this.indice=this.route.snapshot.params['id']
+ cuidado en el constructor poner private router:Router para enrrutar
+  por ultimo para cambiar en un array con indice se hace asi:
+	  this.empleadosService2.empleados[this.indice]=miEmpleado2;
+
+para que una URL a un / que no exista se redirija al error se usa de la siguiente manera:
+{path: '**', component: ErrorComponent}
+y creamos el componene error para que redirija al error
+ 
+//FIREBASE: BBDD no sql que se almacenan en JSON en vez de sql normal y es de google
+1- file en APP con el nombre data.service.ts, creamos el el realtime database, crear en providers:
+2- providers: [ServioEmpleadoService, EmpleadosService, DataServices], >> se importa el DataServices tambien
+3- OJO cuando vayamos a data.services.ts hay que decorarlo con el @Injectable() y crear el contructor con el tipo HttpClient
+4- en el this usar el .subscribe()
+
+Faltaria ver como podemos hacer para cambiar el array sin modificar a cada momento de delete la bbdd
+
+//Login
+
+1- en firebase hay que poner en Rules tanto read como write en "auth!=null"  e instalarlo: npm install firebase
+
+2-hay que editar los archivos npm, nom.cmd, npx y npx.cmd donde esta instalado nodejs y cambiar 
+"prefix -g" por "prefix --location=global"
+
+3-importa "import firebase from 'firebase/compact/app'" en app.component.ts
+
+4-en el ngOnInit inicializamos firebase con:
+  firebase.initializeApp({
+    apiKey: "AIzaSyBJvLfRYb6AcOgI8cmwBxoGYhoTgJLp9io", // estos datos sacamos de firebase de la config
+    authDomain: "clientes-81057.firebaseapp.com",
+  })
+5-crear metodo para que quede logueado con el token:
+    token:string; //variable que usaremos de token
+
+    login(email:string, password: string){ //funcion para crear tojen que traemos de firebase
+
+        firebase.auth().signInWithEmailAndPassword(email, password).then( //suncion que auth hace referencia a la autentificacion, 
+                                                                          //singIn.. a como se autentifica y then para retornar cuando la promesa es resuelta
+
+          response=>{
+
+            firebase.auth().currentUser?.getIdToken().then(   //aqui de currenUser sacamos el token con getIdToken cuando retorna respuesta
+
+              token=>{
+
+                this.token=token;   // copiamos en la variable
+				this.CookieService.set('toker3', token); // aqui guardamos en la cookie con el nombre toker3 y la variable token
+				lo de arriba se explica adelante en **
+                this.router.navigate(['/']); // vamos otra vez a home
+              }
+            )
+          }
+        )
+    };
+
+ademas agregamos LoginService en app.module y 
+
+6- para que se quede guardado todo hay que agregar las cookies:
+	para instalarlo se hace en la carpeta donde esta la app y con el comando:
+		npm install ngx-cookie-service --save
+		
+	hay que agregar CookieService en providers y import { CookieService } from 'ngx-cookie-service'; en app.modules	
+	
+	**aqui guardamos en la cookie nuestra variable
+	
+	por ultimo para obtenerlo se usa .get y para configurarlo .set
+	
+//guardian
+
+1- creamos el file con la clase que debe implementar CanActivate:
+export class LoginGuardia implements CanActivate{}
+
+2-crear injectable, constructor con loginservice y router, luego la funcion canActivate (en login-guardian)
+
+3- if else para devolver true si esta loguado y false con redireccion a login si es false
+
+4-en app.module poner el providers de LoginGuardia
+
+5- en mimo module en routes luego del componen de cada path (ruta) se agrega , canActivate:[LoginGuardia]
+lo que hara que esa ruta esta protegina por el login
+
+
+
+//Despliegue
+
+1-ng build --configuration production -aot >> crea archivos del despliegue
+y se le puede agregar --base-href /nombre-de-carpeta-donde-estara en lo anterior
+
+2-ahora configuramos en el terminal de nuestra app:
+npm install -g firebase-tools >>>>> ESTO SOLO PARA EL HOSTING DE FIREBASE
+3-luego firebase login y firebase init
+4-para finalizar hacermos el deploy con firebase deploy
+
+
+//CAPACITOR
+
+agregamos capacitor a la app
+npm install @capacitor/core
+npm install @capacitor/cli
+
+para tener capacitor.confir.ts:
+npx cap init
+
+agragar paquetes android y IOS
+npm install @capacitor/ios @capacitor/android
+npx cap add ios
+npx cap add android
+
+hay que hacer el production y sincronizacion
+ng build --configuration=production
+npx cap sync
+
+se puede abrir directo desde la consola androir studio o Xcode
+npx cap open ios
+npx cap open android
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
