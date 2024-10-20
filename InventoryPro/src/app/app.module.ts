@@ -7,6 +7,21 @@ import { LoginComponent } from './pages/login/login/login.component';
 import { ForgotComponent } from './pages/login/forgot/forgot.component';
 import { NewAccountComponent } from './pages/login/new-account/new-account.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { Router, RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+
+
+//rutas
+const appRoutes:Routes=[
+
+  {path:'', component:HomePageComponent},
+  {path:'login', component:LoginComponent},
+  {path:'forgot', component:ForgotComponent},
+  {path:'new-account', component:NewAccountComponent},
+  {path:'dashboard', component:DashboardComponent},
+  //{path:'**', component: LoginComponent},
+
+]
 
 
 @NgModule({
@@ -16,14 +31,16 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     ForgotComponent,
     NewAccountComponent,
     DashboardComponent,
+    HomePageComponent,
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(), Router
   ],
   bootstrap: [AppComponent]
 })
