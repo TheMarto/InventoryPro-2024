@@ -1,1 +1,37 @@
-<p>login works!</p>
+
+<div class="container-fluid">
+<!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between align-self-center">
+    <!--logo-->
+        <div class=" ">
+            <a href="">LOGO</a>
+        </div>
+    <!--link to new account-->
+        <div><a href="new-account" class="navbar-brand">Create Account</a></div>
+    </nav>
+
+
+
+<!--raw with login auth-->
+    <div class="raw d-flex justify-content-center">
+    <!--form for login-->
+        <div class="col-md-6 col-12 form-class bg-light">
+            <form #myForm="ngForm" (ngSubmit)="login(myForm)" class="d-flex justify-content-center flex-column form-input">
+                <input class="credentials mb-2 text-center" type="text" name="email" placeholder="email" ngModel>
+                <input class="credentials text-center" type="password" name="pwd" placeholder="Password" ngModel>
+    <!--button for submit-->
+                <button type="submit" name="submit" class="btn btn-dark mt-2">login</button>
+                
+    <!--check to save password in cockie-->
+                <div class="form-switch mt-2">
+                    <input type="checkbox" class="form-check-input" id="remember">
+                    <label for="remember" class="form-label ms-2">remember me</label>
+                </div>
+                <a href="forgot">I forgot my password</a>
+            </form>
+            <br>
+            
+
+        </div>
+    </div>
+</div>

@@ -1,1 +1,86 @@
-<p>dashboard works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- Menú lateral -->
+        <div class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Gráfico 1</a></li>
+                <li><a href="#">Gráfico 2</a></li>
+                <li><a href="#">Gráfico 3</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <h1>Panel de Gráficos</h1>
+
+            <!-- Contenedor de gráficos -->
+            <div class="charts-container">
+                <!-- Gráfico 1 -->
+                <div class="chart-box">
+                    <h3>Gráfico 1</h3>
+                    <canvas id="chart1"></canvas>
+                </div>
+
+                <!-- Gráfico 2 -->
+                <div class="chart-box">
+                    <h3>Gráfico 2</h3>
+                    <canvas id="chart2"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para gráficos usando Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Gráfico 1
+        var ctx1 = document.getElementById('chart1').getContext('2d');
+        var chart1 = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+                datasets: [{
+                    label: 'Ventas',
+                    data: [12, 19, 3, 5, 2],
+                    backgroundColor: 'rgba(52, 152, 219, 0.5)',
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Gráfico 2
+        var ctx2 = document.getElementById('chart2').getContext('2d');
+        var chart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+                datasets: [{
+                    label: 'Usuarios',
+                    data: [5, 10, 4, 8, 6],
+                    backgroundColor: 'rgba(46, 204, 113, 0.5)',
+                    borderColor: 'rgba(46, 204, 113, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+</body>
+</html>

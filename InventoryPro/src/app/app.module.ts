@@ -9,6 +9,7 @@ import { NewAccountComponent } from './pages/login/new-account/new-account.compo
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { FormsModule } from '@angular/forms';
 
 
 //rutas
@@ -32,12 +33,15 @@ const appRoutes:Routes=[
     NewAccountComponent,
     DashboardComponent,
     HomePageComponent,
+
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
+    FormsModule,
+    
   ],
   providers: [
     provideClientHydration(), Router

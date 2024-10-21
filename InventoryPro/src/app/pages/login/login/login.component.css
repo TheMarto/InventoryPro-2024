@@ -1,0 +1,18 @@
+
+.form-class{
+    border-radius: 50px;
+    width: 900px;
+    height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+
+    margin-top: 5%;
+    padding: 0px;
+}
+.form-input input {
+    border-radius: 20px;
+}
