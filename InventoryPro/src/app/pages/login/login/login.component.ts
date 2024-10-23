@@ -11,8 +11,15 @@ import { Route } from '@angular/router';
 })
 export class LoginComponent {
 account: any;
+//const
 
-login(form:NgForm){}
+constructor(){
+
+}
+
+login(form:NgForm){
+
+}
 
 
 googlelogin(){
