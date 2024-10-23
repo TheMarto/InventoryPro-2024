@@ -22,3 +22,6 @@
 .logo-nav {
     height: 40px;
 }
+.total-hover:hover {
+    opacity: 0.9;
+}

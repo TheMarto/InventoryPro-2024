@@ -162,12 +162,12 @@
                 </div>
                 
         <!--total price-->
-                <div>
-                <ul class="list-group mb-3 mt-0">
+                <div (click)="btnpaysubm()">
+                <ul class="list-group mb-3 mt-0 total-hover">
                     <li class="list-group-item d-flex justify-content-between bg-success">
                         <div>
                             <h6 class="my-0">Total price</h6>
-                            <small class="text-white">Small description</small>
+                            <small class="text-white">Clic here to Continue</small>
                         </div>
                         <span class="text-white">{{price}}€ /month</span>
                     </li>
@@ -184,11 +184,27 @@
 
 
 <!--conditions-->
-        <div class="row text-center mb-5 ">
+        <div class="row text-center mb-5">
             <div class="form-switch text-center">
-                <input type="checkbox" class="form-check-input" id="conditions">
+                <input type="checkbox" class="form-check-input" id="conditions" (change)="accepTerCon($event)">
                 <label for="conditios" class="form-label ms-2">Accept the terms and conditions</label>
             </div>
             <a href="">Terms and conditions</a>
         </div>
+</div>
+
+
+<!--Others-->
+<!--Toast if we don't check the terms and conditions-->
+<div class="toast-container position-absolute p-3 top-0 end-0 mt-5">
+    <div  [ngClass]="{'toast bg-danger text-white':true, 'show':(toastTermCond)}" role="alert" area-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Error</strong>
+            <small>Terms and Conditios</small>
+            <button class="btn-close btn-close-white" type="button" aria-label="close" (click)="closeToast()"></button>
+        </div>
+        <div class="toast-body">
+            You need to accept terms and conditios
+        </div>
+    </div>
 </div>
