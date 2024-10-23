@@ -1,0 +1,24 @@
+.container-fluid{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    height: 100%;
+}
+.form-class{
+    border-radius: 30px;
+
+    height: 500px;
+    border: 2px solid rgba(219, 218, 218, 0.2); /* Red border with 50% transparency */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+
+    margin-top: 5%;
+    padding: 0px;
+}
+.logo-nav {
+    height: 40px;
+}

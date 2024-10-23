@@ -1,37 +1,44 @@
 
-<div class="container-fluid">
+<div class="container-fluid bg-secondary min-vh-100">
 <!--navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between align-self-center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex justify-content-between align-self-center">
     <!--logo-->
         <div class=" ">
-            <a href="">LOGO</a>
+            <a href=""><img class="logo-nav" src="logo-invp.png" alt="InventoryPro"></a>
         </div>
     <!--link to new account-->
-        <div><a href="new-account" class="navbar-brand">Create Account</a></div>
+        <div><a href="new-account" class="navbar-brand text-light">Create Account</a></div>
     </nav>
 
 
 
 <!--raw with login auth-->
-    <div class="raw d-flex justify-content-center">
+    <div class="row d-flex justify-content-center mt-3">
     <!--form for login-->
-        <div class="col-md-6 col-12 form-class bg-light">
-            <form #myForm="ngForm" (ngSubmit)="login(myForm)" class="d-flex justify-content-center flex-column form-input">
-                <input class="credentials mb-2 text-center" type="text" name="email" placeholder="email" ngModel>
-                <input class="credentials text-center" type="password" name="pwd" placeholder="Password" ngModel>
-    <!--button for submit-->
-                <button type="submit" name="submit" class="btn btn-dark mt-2">login</button>
-                
-    <!--check to save password in cockie-->
-                <div class="form-switch mt-2">
-                    <input type="checkbox" class="form-check-input" id="remember">
-                    <label for="remember" class="form-label ms-2">remember me</label>
-                </div>
-                <a href="forgot">I forgot my password</a>
-            </form>
-            <br>
-            
-
-        </div>
+        
+            <div class="col-6 form-class bg-light form-input">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6">
+                        <form #myForm="ngForm" (ngSubmit)="login(myForm)" class="d-flex justify-content-center flex-column ">
+                            <input class=" mb-2 text-center input-style" type="text" name="email" placeholder="email" ngModel>
+                            <input class=" text-center input-style" type="password" name="pwd" placeholder="Password" ngModel>
+                                    <!--button for submit-->
+                            <button type="submit" name="submit" class="btn btn-primary mt-2">login</button>
+                        </form>
+                    </div>
+                    <!--check to save password in cockie-->
+                    <div class="form-switch mt-2">
+                        <input type="checkbox" class="form-check-input" id="remember" checked>
+                        <label for="remember" class="form-label ms-2">remember me</label>
+                    </div>
+                    <a href="forgot" class="mb-2">I forgot my password</a>
+                    <hr>
+                            <!--Logo google and login-->
+                    <a type="button" (click)="googlelogin()" class="google-svg" >
+                        <svg  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="48px" height="48px"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/></svg>
+                    </a>
+                </div>                       
+            </div>
+        
     </div>
 </div>

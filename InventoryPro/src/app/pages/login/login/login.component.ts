@@ -14,4 +14,11 @@ account: any;
 
 login(form:NgForm){}
 
+
+googlelogin(){
+  
 }
+
+}
+
+

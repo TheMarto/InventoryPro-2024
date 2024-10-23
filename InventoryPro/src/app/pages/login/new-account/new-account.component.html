@@ -1,1 +1,194 @@
-<p>new-account works!</p>
+
+<div class="container-fluid min-vh-100">
+
+
+<!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex justify-content-between align-self-center">
+        <!--logo-->
+            <div class=" ">
+                <a href=""><img class="logo-nav" src="logo-invp.png" alt="InventoryPro"></a>
+            </div>
+        <!--link to new account-->
+            <div><a href="login" class="navbar-brand text-light">Login</a></div>
+    </nav>
+
+<!--title-->
+    <div class="text-center mt-3">
+        <h1>New Account</h1>
+        <p>Create an account and check the package you need</p>
+    </div>
+
+<!-- form to new account-->
+    <div class="row d-flex justify-content-between mt-4">
+    <!--LEFT PART-->
+    
+    <div class="col-11 col-md-7 ms-md-3 mx-4">
+            
+<!--form for information-->
+        <div class="row">
+            <!--Title Company info-->
+            <div class="text-start ms-3 mb-3">
+                <h3>Company Information</h3>
+            </div>
+        <!--Form-->
+                <form #newAccForm="ngForm" (ngSubmit)="newAccount(newAccForm)">
+                    <div class="row d-flex flex-row">
+                        <div class="form-floating col-12 col-md-6 mb-3">
+                            <input type="text" name="companyName" id="companyName" placeholder="Company Name" class="form-control">
+                            <label for="" class="ms-2">Company Full Name</label>
+                        </div>
+                        <div class="form-floating col-12 col-md-6 mb-3">
+                            <input type="text" name="email" id="email" placeholder="email" class="form-control">
+                            <label for="" class="ms-2">Email</label>
+                        </div>
+                        <div class="form-floating col-12 col-md-6 mb-3">
+                            <input type="text" name="address" id="address" placeholder="address" class="form-control">
+                            <label for="" class="ms-2">Address</label>
+                        </div>
+                        <div class="form-floating col-12 col-md-6 mb-3">
+                            <input type="text" name="country" id="country" placeholder="country" class="form-control">
+                            <label for="" class="ms-2">Country</label>
+                        </div>
+                        <div class="form-floating col-12 col-md-6 mb-3">
+                            <input type="text" name="state" id="state" placeholder="state" class="form-control">
+                            <label for="" class="ms-2">State</label>
+                        </div>
+                        <div class="form-floating col-12 col-md-6 mb-3">
+                            <input type="text" name="zipcode" id="zipcode" placeholder="zipcode" class="form-control">
+                            <label for="" class="ms-2">Zipcode</label>
+                        </div>
+                    </div>
+                </form>
+        </div>
+
+        <hr>
+
+<!--form for services-->
+        <div class="row">
+        <!--Title of services-->
+            <div class="text-start ms-3 mb-3">
+                <h3>Company Services</h3>
+            </div>
+        <!--form services-->
+            <form #newSerForm="ngForm" (ngSubmit)="newServiceAcc(newSerForm)">
+                <div class="row d-flex flex-row">
+                    <div class="form-floating col-12 col-md-6 mb-3">
+                        <input type="text" name="typeservices" id="typeservices" placeholder="type services" class="form-control">
+                        <label for="" class="ms-2">Type of Services</label>
+                    </div>
+                    <div class="form-floating col-12 col-md-6 mb-3">
+                        <input type="text" name="sector" id="sector" placeholder="sector" class="form-control">
+                        <label for="" class="ms-2">Sector</label>
+                    </div>
+                    <div class="form-floating col-12 col-md-6 mb-3">
+                        <input type="text" name="countcalcode" id="countcalcode" placeholder="countcalcode" class="form-control">
+                        <label for="" class="ms-2">Country Calling Code</label>
+                    </div>
+                    <div class="form-floating col-12 col-md-6 mb-3">
+                        <input type="text" name="phonenum" id="phonenum" placeholder="phonenum" class="form-control">
+                        <label for="" class="ms-2">Phone Number</label>
+                    </div>                    
+                </div>
+            </form>
+        </div>
+
+        <hr class="mb-2">
+
+<!--form for Bill-->
+        <div class="row">
+                <!--Title-->
+            <div class="text-start ms-3 mb-3">
+                <h3>Billing Address</h3>
+            </div>
+        <!--form billing-->
+            <form #newSerForm="ngForm" (ngSubmit)="newServiceAcc(newSerForm)">
+                <div class="row d-flex flex-row">
+                    <div class="form-floating col-12 col-md-6 mb-3">
+                        <input type="text" name="biladdr" id="biladdr" placeholder="billing address" class="form-control">
+                        <label for="" class="ms-2">Address for Billing</label>
+                    </div>
+                    <div class="form-floating col-12 col-md-6 mb-3">
+                        <input type="text" name="number" id="number" placeholder="number" class="form-control">
+                        <label for="" class="ms-2">Phone Numer with Country Coude</label>
+                    </div>                                    
+                </div>
+            </form>
+        </div>        
+    </div>
+        
+
+<!--RIGHT PART-->
+        <div class="col-12 col-md-4 ms-2 ms-md-0 me-2">
+        <!--title-->            
+            <div class="text-start  mb-3">
+                <h3>Packages or Demo</h3>
+                <p>(demo have 30 days to use free)</p>
+            </div>
+
+        <!--Check box with package or demo mode-->
+            <div class="  d-flex flex-column">
+        <!--demo or pay mode-->
+                <div class="ms-3 ms-md-2 mb-5">
+                    <div class="form-switch">
+                        <input type="radio" class="form-check-input" id="demomode" name="demo" checked [(ngModel)]="modeAccount" [value]="'demo'" (change)="disablePackage()">
+                        <label for="demo" class="form-label ms-2">Demo</label>
+                    </div>
+                    <div class="form-switch">
+                        <input type="radio" class="form-check-input" id="paymode" name="demo" [(ngModel)]="modeAccount" [value]="'paymode'" (change)="disablePackage()">
+                        <label for="demo" class="form-label ms-2">Pay Mode</label>
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+
+                <div>
+                    <div class="form-switch">
+                        <input type="radio" class="form-check-input" name="package" [disabled]="package" [(ngModel)]="nameTypePack" [value]="'basicpack'" (change)="typePackage()">
+                        <label for="basic" class="form-label ms-2">Basic</label>
+                        <p>incluid 3 user and 1 warehose</p>
+                    </div>
+                    <br>
+                    <div class="form-switch">
+                        <input type="radio" class="form-check-input" name="package" [disabled]="package" [(ngModel)]="nameTypePack" [value]="'professionalpack'" (change)="typePackage()">
+                        <label for="profesional" class="form-label ms-2">Professional</label>
+                        <p>incluid 10 users and 3 warehose, messanges, QR generator and QR and bar-code scan</p>
+                    </div>
+                    <br>
+                    <div class="form-switch">
+                        <input type="radio" class="form-check-input" name="package" [disabled]="package" [(ngModel)]="nameTypePack" [value]="'enterprisepack'" (change)="typePackage()">
+                        <label for="enterprise" class="form-label ms-2">Enterprice</label>
+                        <p>incluid 50 users and 30 warehose, messanges, QR generator and QR and bar-code scan</p>
+                    </div>
+                </div>
+                
+        <!--total price-->
+                <div>
+                <ul class="list-group mb-3 mt-0">
+                    <li class="list-group-item d-flex justify-content-between bg-success">
+                        <div>
+                            <h6 class="my-0">Total price</h6>
+                            <small class="text-white">Small description</small>
+                        </div>
+                        <span class="text-white">{{price}}€ /month</span>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr class="mb-2">
+
+
+
+<!--conditions-->
+        <div class="row text-center mb-5 ">
+            <div class="form-switch text-center">
+                <input type="checkbox" class="form-check-input" id="conditions">
+                <label for="conditios" class="form-label ms-2">Accept the terms and conditions</label>
+            </div>
+            <a href="">Terms and conditions</a>
+        </div>
+</div>
