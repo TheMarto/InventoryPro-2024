@@ -92,28 +92,7 @@
             </form>
         </div>
 
-        <hr class="mb-2">
-
-<!--form for Bill-->
-        <div class="row">
-                <!--Title-->
-            <div class="text-start ms-3 mb-3">
-                <h3>Billing Address</h3>
-            </div>
-        <!--form billing-->
-            <form #newSerForm="ngForm" (ngSubmit)="newServiceAcc(newSerForm)">
-                <div class="row d-flex flex-row">
-                    <div class="form-floating col-12 col-md-6 mb-3">
-                        <input type="text" name="biladdr" id="biladdr" placeholder="billing address" class="form-control">
-                        <label for="" class="ms-2">Address for Billing</label>
-                    </div>
-                    <div class="form-floating col-12 col-md-6 mb-3">
-                        <input type="text" name="number" id="number" placeholder="number" class="form-control">
-                        <label for="" class="ms-2">Phone Numer with Country Coude</label>
-                    </div>                                    
-                </div>
-            </form>
-        </div>        
+          
     </div>
         
 
@@ -127,35 +106,35 @@
 
         <!--Check box with package or demo mode-->
             <div class="  d-flex flex-column">
-        <!--demo or pay mode-->
-                <div class="ms-3 ms-md-2 mb-5">
+        <!--switch for demo or pay mode-->
+                <div class="ms-3 ms-md-2 mb-2 mt-2">
                     <div class="form-switch">
                         <input type="radio" class="form-check-input" id="demomode" name="demo" checked [(ngModel)]="modeAccount" [value]="'demo'" (change)="disablePackage()">
-                        <label for="demo" class="form-label ms-2">Demo</label>
+                        <label for="demomode" class="form-label ms-2">Demo</label>
                     </div>
-                    <div class="form-switch">
+                    <div class="form-switch mt-2">
                         <input type="radio" class="form-check-input" id="paymode" name="demo" [(ngModel)]="modeAccount" [value]="'paymode'" (change)="disablePackage()">
-                        <label for="demo" class="form-label ms-2">Pay Mode</label>
+                        <label for="paymode" class="form-label ms-2">Pay Mode</label>
                     </div>
                 </div>
 
                 <hr class="mb-4">
-
+        <!--switch for package-->
                 <div>
                     <div class="form-switch">
-                        <input type="radio" class="form-check-input" name="package" [disabled]="package" [(ngModel)]="nameTypePack" [value]="'basicpack'" (change)="typePackage()">
+                        <input type="radio" class="form-check-input" name="package" id="basic" [disabled]="package" [(ngModel)]="nameTypePack" [value]="'basicpack'" (change)="typePackage()">
                         <label for="basic" class="form-label ms-2">Basic</label>
                         <p>incluid 3 user and 1 warehose</p>
                     </div>
                     <br>
                     <div class="form-switch">
-                        <input type="radio" class="form-check-input" name="package" [disabled]="package" [(ngModel)]="nameTypePack" [value]="'professionalpack'" (change)="typePackage()">
+                        <input type="radio" class="form-check-input" name="package" id="profesional" [disabled]="package" [(ngModel)]="nameTypePack" [value]="'professionalpack'" (change)="typePackage()">
                         <label for="profesional" class="form-label ms-2">Professional</label>
                         <p>incluid 10 users and 3 warehose, messanges, QR generator and QR and bar-code scan</p>
                     </div>
                     <br>
                     <div class="form-switch">
-                        <input type="radio" class="form-check-input" name="package" [disabled]="package" [(ngModel)]="nameTypePack" [value]="'enterprisepack'" (change)="typePackage()">
+                        <input type="radio" class="form-check-input" name="package" id="enterprise" [disabled]="package" [(ngModel)]="nameTypePack" [value]="'enterprisepack'" (change)="typePackage()">
                         <label for="enterprise" class="form-label ms-2">Enterprice</label>
                         <p>incluid 50 users and 30 warehose, messanges, QR generator and QR and bar-code scan</p>
                     </div>
@@ -179,15 +158,15 @@
 
 
 
-    <hr class="mb-2">
+    <hr class="mt-5">
 
 
 
 <!--conditions-->
-        <div class="row text-center mb-5">
+        <div class="row text-center mb-2 mt-2">
             <div class="form-switch text-center">
                 <input type="checkbox" class="form-check-input" id="conditions" (change)="accepTerCon($event)">
-                <label for="conditios" class="form-label ms-2">Accept the terms and conditions</label>
+                <label for="conditions" class="form-label ms-2">Accept the terms and conditions</label>
             </div>
             <a href="">Terms and conditions</a>
         </div>
