@@ -5,4 +5,5 @@ html, body {
     background-attachment: fixed;
     background-size: cover;
     min-height: 100%;
+    max-width: 100%;
   }

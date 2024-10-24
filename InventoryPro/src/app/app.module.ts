@@ -10,6 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { FormsModule } from '@angular/forms';
+import { NewPasswordComponent } from './pages/login/new-password/new-password.component';
 
 
 //rutas
@@ -20,6 +21,7 @@ const appRoutes:Routes=[
   {path:'forgot', component:ForgotComponent},
   {path:'new-account', component:NewAccountComponent},
   {path:'dashboard', component:DashboardComponent},
+  {path:'new-password', component:NewPasswordComponent},
   //{path:'**', component: LoginComponent},
 
 ]
@@ -33,6 +35,7 @@ const appRoutes:Routes=[
     NewAccountComponent,
     DashboardComponent,
     HomePageComponent,
+    NewPasswordComponent,
 
     
   ],

@@ -1,6 +1,6 @@
-<div class="container-fluid min-vh-100 ps-0">
+<div class="container-fluid min-vh-100 p-0 m-0 mw-100">
     <!--navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex justify-content-between align-self-center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex justify-content-between align-self-center 2.100">
         <!--logo-->
             <div class=" ">
                 <a href=""><img class="logo-nav" src="logo-invp.png" alt="InventoryPro"></a>
@@ -9,10 +9,40 @@
             <div><a href="login" class="navbar-brand text-light">Login</a></div>
     </nav>
     
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-6">
-            <h3>Forgot My Password</h3>
+    <!--title-->
+    <div class="row d-flex justify-content-center mt-2">
+        <div class="col-12 col-md-6 mt-3 mb-5 text-center form-column">
+            <h1>Forgot My Password</h1>
+            <p class="mt-3">Introduce a correct email and we send you a email to change the password</p>
+        </div>
+    </div>
+
+<!--form to change password-->
+    <div class="row  d-flex justify-content-center mt-5">
+        <div class="col-12 col-md-3 mt-5">
+            <form class="" #newForgForm="ngForm" (ngSubmit)="forgotPass(newForgForm)">
+                <div class="form-floating">
+                    <input type="email" class="form-control" placeholder="email" name="email"  required #input="ngModel" ngModel>
+                    <label for="">Email</label>
+                </div>
+                <button class="btn btn-primary w-100 mt-2">Send the email</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--Others-->
+<!--Toast errors-->
+<div class="toast-container position-absolute p-3 top-0 end-0 mt-5">
+    <div  [ngClass]="{'toast bg-danger text-white':true, 'show':(toastInvalid)}" role="alert" area-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Error</strong>
+            <small></small>
+            <button class="btn-close btn-close-white" type="button" aria-label="close" (click)="closeToast()"></button>
+        </div>
+        <div class="toast-body">
+            {{toastMessage}}
         </div>
     </div>
 </div>
